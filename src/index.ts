@@ -17,7 +17,9 @@ function listarTarefas(){
         let linkElement = document.createElement("a");
         linkElement.setAttribute("href", "#");
 
-        linkElement.setAttribute("onclick", "deletarTarefa()");
+        let posicao = tarefas.indexOf(item);
+
+        linkElement.setAttribute("onclick", `deletarTarefa(${posicao})`);
         linkElement.setAttribute("style", "margin-left:10px");
 
         let linkText = document.createTextNode("Excluir");
@@ -51,8 +53,11 @@ function adicionarTarefa(){
 
 buttonElement.onclick = adicionarTarefa
 
-function deletarTarefa(){
-    alert("Funcao Chamada")
+function deletarTarefa(posicao: number){
+    tarefas.splice(posicao,1);
+
+    listarTarefas();
+    salvarDados();
 }
 
 function salvarDados()
