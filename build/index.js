@@ -2,7 +2,9 @@
 let listElement = document.querySelector("#app ul");
 let inputElement = document.querySelector("#app input");
 let buttonElement = document.querySelector("#app button");
-let tarefas = [];
+let listaSalva = localStorage.getItem("@listagem_tarefas");
+console.log(listaSalva);
+let tarefas = listaSalva !== null && JSON.parse(listaSalva) || [];
 function listarTarefas() {
     listElement.innerHTML = "";
     tarefas.map(item => {
