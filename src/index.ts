@@ -1,3 +1,23 @@
 
 let listElement = document.querySelector("#app ul") as HTMLUListElement;
-let inputElement = document.querySelector("#appp")
+let inputElement = document.querySelector("#app input") as HTMLInputElement;
+let buttonElement = document.querySelector("#app button")as HTMLElement;
+
+let tarefas: string[] = [];
+
+function adicionarTarefa(){
+    if(inputElement.value == "")
+    {
+        alert("Digite alguma tarefa!")
+        return false;
+    }
+    else{
+
+        let tarefadigitada: string = inputElement.value;
+        tarefas.push(tarefadigitada);
+
+        inputElement.value = "";
+
+        console.log(tarefas);
+    }
+}
