@@ -5,6 +5,20 @@ let buttonElement = document.querySelector("#app button")as HTMLElement;
 
 let tarefas: string[] = [];
 
+function listarTarefas(){
+    listElement.innerHTML = "";
+
+    tarefas.map(item => {
+        let todoElement = document.createElement("li");
+        let tarefaText = document.createTextNode(item);
+
+        todoElement.appendChild(tarefaText);
+        listElement.appendChild(todoElement);
+    })
+}
+
+listarTarefas();
+
 function adicionarTarefa(){
     if(inputElement.value === "")
     {
@@ -18,7 +32,8 @@ function adicionarTarefa(){
 
         inputElement.value = "";
 
-       salvarDados();   
+        listarTarefas();
+        salvarDados();   
     }
 }
 
