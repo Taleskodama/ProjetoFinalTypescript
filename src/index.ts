@@ -6,7 +6,7 @@ let buttonElement = document.querySelector("#app button")as HTMLElement;
 let tarefas: string[] = [];
 
 function adicionarTarefa(){
-    if(inputElement.value == "")
+    if(inputElement.value === "")
     {
         alert("Digite alguma tarefa!")
         return false;
@@ -18,6 +18,13 @@ function adicionarTarefa(){
 
         inputElement.value = "";
 
-        console.log(tarefas);
+       salvarDados();   
     }
+}
+
+buttonElement.onclick = adicionarTarefa
+
+function salvarDados()
+{
+    localStorage.setItem("@listagem_tarefas", JSON.stringify(tarefas))
 }

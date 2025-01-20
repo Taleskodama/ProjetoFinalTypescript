@@ -4,7 +4,7 @@ let inputElement = document.querySelector("#app input");
 let buttonElement = document.querySelector("#app button");
 let tarefas = [];
 function adicionarTarefa() {
-    if (inputElement.value == "") {
+    if (inputElement.value === "") {
         alert("Digite alguma tarefa!");
         return false;
     }
@@ -12,6 +12,10 @@ function adicionarTarefa() {
         let tarefadigitada = inputElement.value;
         tarefas.push(tarefadigitada);
         inputElement.value = "";
-        console.log(tarefas);
+        salvarDados();
     }
+}
+buttonElement.onclick = adicionarTarefa;
+function salvarDados() {
+    localStorage.setItem("@listagem_tarefas", JSON.stringify(tarefas));
 }
